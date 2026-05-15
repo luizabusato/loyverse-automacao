@@ -1,0 +1,63 @@
+# 🚀 Sistema de Automação em Tempo Real — Loyverse
+## Oculta itens automaticamente quando o estoque zera
+
+---
+
+## COMO FUNCIONA
+Quando uma venda é feita no Loyverse → o sistema recebe o aviso na hora →
+verifica se o estoque zerou → oculta o item da tela de vendas imediatamente.
+
+---
+
+## PASSO 1 — Criar conta no Railway
+1. Acesse: https://railway.app
+2. Clique em "Login with GitHub"
+3. Se não tiver GitHub, crie uma conta gratuita em https://github.com primeiro
+4. Autorize o Railway a acessar sua conta GitHub
+
+---
+
+## PASSO 2 — Subir o sistema no Railway
+1. No Railway, clique em "New Project"
+2. Escolha "Deploy from GitHub repo"
+3. Clique em "Configure GitHub App" e selecione o repositório
+   (se não tiver repositório, use a opção "Empty Project" e suba os arquivos)
+4. Aguarde o deploy terminar — vai aparecer uma URL como:
+   https://seu-projeto.up.railway.app
+
+---
+
+## PASSO 3 — Configurar o token do Loyverse no Railway
+1. No Railway, clique no seu projeto
+2. Vá em "Variables"
+3. Clique em "New Variable"
+4. Nome: LOYVERSE_TOKEN
+5. Valor: (cole seu token aqui)
+6. Clique em "Add"
+7. O sistema vai reiniciar automaticamente
+
+---
+
+## PASSO 4 — Configurar o Webhook no Loyverse
+1. Acesse: back.loyverse.com
+2. Vá em Settings → Webhooks
+3. Clique em "Create Webhook"
+4. Cole a URL do Railway + /webhook, exemplo:
+   https://seu-projeto.up.railway.app/webhook
+5. Em "Events", selecione: "Receipt created"
+6. Salve
+
+---
+
+## PASSO 5 — Testar
+Faça uma venda de teste no Loyverse com um item que tem estoque = 1.
+Após a venda, o item deve desaparecer automaticamente da tela de vendas.
+
+---
+
+## RESULTADO
+✅ Venda feita → item some da tela na hora
+✅ Roda 24h na nuvem sem precisar do computador ligado
+✅ 100% gratuito no Railway (plano hobby)
+✅ Se repuser estoque manualmente no Loyverse, o item volta automaticamente
+   (basta marcar "available for sale" de volta no Back Office)
