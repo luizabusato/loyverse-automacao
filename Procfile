@@ -1,1 +1,1 @@
-web: gunicorn automacao_webhook:app
+web: gunicorn automacao:app
